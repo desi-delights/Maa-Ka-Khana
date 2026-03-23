@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maa Ka Khana — A Mother's Kitchen | Edison, NJ</title>
+<meta name="description" content="Homemade Indian meals, made to order with Avocado Oil & Pure Ghee. 100% Pure Veg Kitchen. Serving Edison, NJ & surrounding areas.">
+<meta property="og:title" content="Maa Ka Khana — A Mother's Kitchen">
+<meta property="og:description" content="Homemade Indian meals, made to order. Avocado Oil & Pure Ghee. 100% Pure Veg. Edison, NJ.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-light: #2C3E6B;
+  --gold: #C9A84C;
+  --gold-light: #E8D9A0;
+  --cream: #FAF7F0;
+  --cream-dk: #EDE8DA;
+  --charcoal: #1E1E1E;
+  --slate: #6B7B8D;
+  --copper: #B87333;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Outfit', sans-serif; background: var(--navy); color: var(--charcoal); }
+
+.wrap { max-width: 640px; margin: 0 auto; background: var(--cream); min-height: 100vh; }
+
+.gold-strip { height: 3px; background: linear-gradient(90deg, var(--navy), var(--gold), var(--gold-light), var(--gold), var(--navy)); }
+
+/* Header */
+.header {
+  text-align: center; padding: 34px 20px 22px;
+  background: var(--navy); position: relative; overflow: hidden;
+}
+.header::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 130%, rgba(201,168,76,0.07) 0%, transparent 65%);
+}
+.header > * { position: relative; }
+.tagline { font-weight: 300; font-size: 8px; letter-spacing: 5px; color: var(--gold-light); text-transform: uppercase; margin-bottom: 14px; opacity:0; animation: fadeUp .5s ease .15s forwards; }
+.brand { font-family: 'DM Serif Display', serif; font-size: 42px; color: var(--cream); line-height: 1.05; margin-bottom: 5px; opacity:0; animation: fadeUp .5s ease .3s forwards; }
+.subtitle { font-weight: 300; font-size: 10px; letter-spacing: 7px; color: var(--gold); text-transform: uppercase; opacity:0; animation: fadeUp .5s ease .4s forwards; }
+.location { font-size: 10px; color: var(--slate); margin-top: 6px; opacity:0; animation: fadeUp .5s ease .5s forwards; }
+
+/* Divider */
+.divider { display: flex; align-items: center; gap: 8px; padding: 0 50px; background: var(--navy); padding-bottom: 14px; }
+.divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.divider-gem { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+/* Badges */
+.badges {
+  display: flex; justify-content: center; gap: 10px; padding: 12px 14px;
+  margin: 0 18px; background: var(--cream-dk); border: 1px solid var(--gold-light); border-radius: 8px;
+  opacity:0; animation: fadeUp .4s ease .6s forwards;
+}
+.badge { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.badge-icon {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--navy);
+  display: flex; align-items: center; justify-content: center; font-size: 17px;
+  box-shadow: 0 2px 6px rgba(27,42,74,0.12);
+}
+.badge span { font-size: 7px; font-weight: 600; letter-spacing: 0.7px; color: var(--navy); text-transform: uppercase; text-align: center; line-height: 1.2; }
+
+/* Order Info */
+.order-info {
+  margin: 12px 18px 0; padding: 14px 16px; background: var(--navy);
+  border-radius: 8px; text-align: center;
+}
+.order-info h3 { font-weight: 600; font-size: 8px; letter-spacing: 3px; color: var(--gold); margin-bottom: 6px; }
+.order-info p { font-size: 10.5px; font-weight: 300; color: var(--cream-dk); line-height: 1.85; }
+.order-info .hl { color: var(--gold); font-weight: 500; }
+
+/* Section */
+.section { padding: 18px 18px 4px; }
+.section-head { text-align: center; margin-bottom: 12px; position: relative; }
+.section-head::before, .section-head::after { content: ''; position: absolute; top: 50%; height: 1px; background: var(--gold-light); width: calc(50% - 85px); }
+.section-head::before { left: 0; } .section-head::after { right: 0; }
+.section-head h2 {
+  display: inline-block; font-family: 'Outfit', sans-serif; font-weight: 600;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cream); background: var(--navy); padding: 6px 18px; border-radius: 18px;
+}
+
+/* Items */
+.item {
+  display: flex; gap: 11px; padding: 9px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: background .15s;
+}
+.item:last-child { border-bottom: none; }
+.item:hover { background: rgba(201,168,76,0.03); border-radius: 6px; margin: 0 -3px; padding: 9px 3px; }
+
+.item-icon {
+  width: 46px; height: 46px; border-radius: 9px; background: var(--navy);
+  display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+  box-shadow: 0 1px 6px rgba(27,42,74,0.08);
+}
+.item-body { flex: 1; }
+.item-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.item-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--navy); line-height: 1.2; }
+.item-price { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: var(--navy); white-space: nowrap; }
+.item-desc { font-size: 11px; font-weight: 300; color: var(--slate); line-height: 1.5; margin-top: 1px; }
+.item-note { font-size: 9.5px; color: var(--copper); font-style: italic; margin-top: 2px; }
+.item-tag {
+  display: inline-block; font-size: 7px; font-weight: 600; letter-spacing: 0.5px;
+  background: var(--navy); color: var(--gold); padding: 2px 8px; border-radius: 10px;
+  margin-top: 3px; text-transform: uppercase;
+}
+
+.min-order {
+  text-align: center; margin: 5px 0; padding: 5px 12px;
+  background: var(--cream-dk); border: 1px solid var(--gold-light); border-radius: 4px;
+  font-size: 9.5px; color: var(--copper); font-style: italic;
+}
+
+.ghee-note {
+  text-align: center; font-size: 9.5px; color: var(--copper); font-style: italic;
+  margin: 4px 0 8px; padding: 4px 0;
+}
+
+.batter-sub {
+  text-align: center; font-size: 10.5px; font-weight: 300; color: var(--slate);
+  font-style: italic; margin-bottom: 8px;
+}
+
+/* Banner */
+.banner {
+  margin: 10px 18px; padding: 22px 18px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #3D5280 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+.banner::before { content: ''; position: absolute; inset: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 70% 30%, rgba(201,168,76,0.05) 0%, transparent 50%); }
+.banner h3 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--cream); position: relative; }
+.banner p { font-size: 8px; letter-spacing: 3px; color: var(--gold); margin-top: 5px; position: relative; }
+
+/* Footer */
+.footer { text-align: center; padding: 16px 20px 28px; }
+.footer-q { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 16px; color: var(--navy); }
+.footer-t { font-size: 9px; font-weight: 300; color: var(--slate); letter-spacing: 1px; margin-top: 3px; }
+.navy-strip { height: 3px; background: linear-gradient(90deg, var(--gold), var(--navy), var(--navy-light), var(--navy), var(--gold)); }
+
+@keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+  .brand { font-size: 32px; }
+  .badges { gap: 5px; padding: 8px 8px; }
+  .badge-icon { width: 32px; height: 32px; font-size: 14px; }
+  .badge span { font-size: 6px; }
+  .item-icon { width: 40px; height: 40px; font-size: 17px; }
+  .item-name { font-size: 14px; }
+  .item-price { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="gold-strip"></div>
+
+  <header class="header">
+    <p class="tagline">Homemade · Made to Order · Clean Ingredients</p>
+    <h1 class="brand">Maa Ka Khana</h1>
+    <p class="subtitle">A Mother's Kitchen</p>
+    <p class="location">Edison, New Jersey & Surrounding Areas</p>
+  </header>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-gem"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="badges">
+    <div class="badge"><div class="badge-icon">🥑</div><span>Avocado Oil</span></div>
+    <div class="badge"><div class="badge-icon">🧈</div><span>Pure Ghee</span></div>
+    <div class="badge"><div class="badge-icon">💪</div><span>Protein Rich</span></div>
+    <div class="badge"><div class="badge-icon">🌿</div><span>No Preservatives</span></div>
+  </div>
+
+  <div class="order-info">
+    <h3>HOW TO ORDER</h3>
+    <p>All items <span class="hl">freshly made to order</span> · <span class="hl">24-hour advance notice</span> required to ensure fulfillment<br>
+    Cooked in a <span class="hl">100% Pure Vegetarian Kitchen</span> · We use only high-quality, clean ingredients<br>
+    Your choice of Premium Avocado Oil or Pure Ghee · No Preservatives · No Artificial Anything<br>
+    We can accommodate customizations on certain items — please inquire!<br>
+    Serving Edison, NJ & Surrounding Areas · Pickup & Local Delivery Available</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>SALADS  &  STARTERS</h2></div>
+    <div class="item">
+      <div class="item-icon">🥗</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Kala Chana POWER Salad</div><div class="item-price">$15</div></div>
+        <div class="item-desc">Kala Chana, Boiled Peanuts, Cilantro, Fine Diced Tomatoes, Onion, Lime Juice & Indian Spices</div>
+        <div class="item-tag">HIGH PROTEIN</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫓</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Paneer Paratha</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Stuffed with Fresh Paneer, Cilantro, Onion & Garlic — Made with Ghee or Avocado Oil</div>
+        <div class="item-note">Min. Qty: 5 Pcs to Order</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫓</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Sattu Paratha</div><div class="item-price">$21</div></div>
+        <div class="item-desc">Available in Plain or Garlic — A Protein-Rich Bihar Specialty</div>
+        <div class="item-tag">BIHAR SPECIAL</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>ENTRÉES</h2></div>
+    <div class="item">
+      <div class="item-icon">🍛</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Rajma Masala</div><div class="item-price">$21</div></div>
+        <div class="item-desc">Red Kidney Beans Simmered in a Rich, Aromatic Masala Gravy with Fresh Cilantro — Avocado Oil or Ghee</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🍛</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Chhole Masala</div><div class="item-price">$21</div></div>
+        <div class="item-desc">Chickpeas Slow-Cooked in a Spiced Masala Gravy with Cilantro — Avocado Oil or Ghee</div>
+        <div class="item-tag">CROWD FAVORITE</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🧀</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Paneer Tikka Masala</div><div class="item-price">$24</div></div>
+        <div class="item-desc">Paneer Cubes Cooked in Homemade Sabji Gravy — Rich, Creamy & Full of Flavor</div>
+        <div class="item-tag">PREMIUM</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🍲</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Sev Usal</div><div class="item-price">$21</div></div>
+        <div class="item-desc">Spiced Sprouted Moth Beans Curry Topped with Crispy Sev, Onion & Cilantro — A Beloved Maharashtrian Street-Style Dish, Always Made Fresh</div>
+        <div class="item-tag">MAHARASHTRIAN</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>RICE  &  DAL</h2></div>
+    <div class="item">
+      <div class="item-icon">🫕</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Dal Fry</div><div class="item-price">$18</div></div>
+        <div class="item-desc">Hearty Daal with Aromatic Tadka — Your Choice of Avocado Oil or Ghee</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫕</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Yellow Daal</div><div class="item-price">$18</div></div>
+        <div class="item-desc">Comforting Yellow Lentil Dal — A Simple, Nourishing Home-Style Staple</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🍚</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Split Moong Daal Khichdi</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Cooked Home-Style — Light, Nourishing & Comforting</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫕</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Yellow Dal Khichdi</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Cooked Home-Style — A Classic Comfort Bowl</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🍚</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Masala Khichdi</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Cooked Home-Style — Spiced & Satisfying</div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>ROTI  •  PARATHA  •  SIDES</h2></div>
+    <div class="item">
+      <div class="item-icon">🫓</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Plain Roti</div><div class="item-price">$2.50/pc</div></div>
+        <div class="item-desc">Soft Whole Wheat Flatbread  |  +$0.50 for Ghee or Butter</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫓</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Plain Paratha</div><div class="item-price">$3.00/pc</div></div>
+        <div class="item-desc">Flaky Layered Flatbread  |  +$0.50 for Ghee or Butter</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">💪</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Protein Roti</div><div class="item-price">$3.50/pc</div></div>
+        <div class="item-desc">A Wholesome, Protein-Enriched Flatbread</div>
+        <div class="item-note">Inquire for Availability</div>
+      </div>
+    </div>
+    <div class="min-order">Minimum Order for Roti & Paratha: 5 Pieces</div>
+    <div class="item">
+      <div class="item-icon">🥛</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Chaas / Buttermilk</div><div class="item-price">$6</div></div>
+        <div class="item-desc">Refreshing Spiced Buttermilk — The Perfect Accompaniment</div>
+        
+      </div>
+    </div>
+    <div class="ghee-note">+$0.50 per piece for Ghee or Butter on Roti & Paratha</div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>DESSERTS</h2></div>
+    <div class="item">
+      <div class="item-icon">🍫</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Dates & Dryfruit Bites</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Slow Roasted in Pure Ghee — A Guilt-Free Indulgence  |  6-8 Pc Box</div>
+        <div class="item-tag">GHEE ROASTED</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🥥</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Dates & Coconut Bites</div><div class="item-price">$20</div></div>
+        <div class="item-desc">Slow Roasted in Ghee, Layered with Coconut Flakes — Naturally Sweet  |  6-8 Pc Box</div>
+        <div class="item-tag">GHEE ROASTED</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🍮</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Rava Shira</div><div class="item-price">$15</div></div>
+        <div class="item-desc">Semolina Slow-Toasted in Pure Ghee with Cardamom, Nuts & Raisins — A Traditional Maharashtrian Prasad-Style Sweet, Freshly Made</div>
+        <div class="item-tag">TRADITIONAL</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>READY-MADE  BATTERS</h2></div>
+    <p class="batter-sub">Fresh Batters — Ready to Use at Home — Available for Pickup</p>
+    <div class="item">
+      <div class="item-icon">🫙</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Idli Batter</div><div class="item-price">$12</div></div>
+        <div class="item-desc">Perfectly Fermented — Makes Fluffy, Soft Idlis Every Time</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫙</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Dal-Wada Batter</div><div class="item-price">$12</div></div>
+        <div class="item-desc">Ready-to-Fry — For Crispy, Golden Dal Wadas</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫙</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Mendu Wada Batter</div><div class="item-price">$12</div></div>
+        <div class="item-desc">Authentic South Indian — Crispy Outside, Fluffy Inside</div>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-icon">🫙</div>
+      <div class="item-body">
+        <div class="item-row"><div class="item-name">Live Dhokla Batter</div><div class="item-price">$12</div></div>
+        <div class="item-desc">Fresh Gujarati-Style — Steam for Spongy, Perfect Dhoklas at Home</div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="banner">
+    <h3>Made with Love, Served with Soul</h3>
+    <p>100% PURE VEG KITCHEN · AVOCADO OIL & GHEE · ZERO PRESERVATIVES</p>
+  </div>
+
+  <div class="divider" style="background:var(--cream); padding: 6px 50px;">
+    <div class="divider-line"></div>
+    <div class="divider-gem"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="footer">
+    <p class="footer-q">"Ghar jaisa khaana, maa ke haath ka swaad"</p>
+    <p class="footer-t">Home-style food, with the taste of a mother's hands</p>
+  </div>
+
+  <div class="navy-strip"></div>
+</div>
+</body>
+</html>
