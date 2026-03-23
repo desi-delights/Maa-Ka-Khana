@@ -2,7 +2,7 @@
 
 Online menu for Maa Ka Khana, a home-cooked, made-to-order Indian meal service based in Edison, NJ.
 
-**Live menu:** [View Menu](https://YOUR_USERNAME.github.io/maa-ka-khana-menu/)
+**Live menu:** [View Menu](https://desi-delights.github.io/maa-ka-khana/)
 
 ---
 
